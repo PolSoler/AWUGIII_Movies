@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+   
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://api.themoviedb.org https://vision.googleapis.com data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' http://image.tmdb.org data: content:;font-src 'self' 'unsafe-inline' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		
+    <link rel="stylesheet" href="libs/roboto.css">
+    <link rel="stylesheet" href="libs/vuematerial.css">
+    <link rel="stylesheet" href="libs/vuethemedefault.css">
+    <link rel="stylesheet" href="css/estils.css">
+    <script src="libs/jquery-2.1.0.min.js"></script>
+      
+      
+  </head>
+
+  <body>
+    <div  class="app-viewport" id="app">
+        
+        
+        <!--
+        <md-toolbar class="md-transparent" md-elevation="0"> 
+            <md-button class="md-icon-button" @click="showNavigation = true">
+                <md-icon>menu</md-icon>
+            </md-button>
+        </md-toolbar>
+        
+        <md-drawer :md-active.sync="showNavigation" ref="sidebar"> 
+              <md-toolbar class="md-primary" md-elevation="0">
+                <span class="md-title">Find The Movie</span>
+              </md-toolbar>
+
+              <md-list>
+                <md-list-item @click="goToFind()">
+                  <md-icon>search</md-icon>
+                  <span class="md-list-item-text">Search Movie</span>
+                </md-list-item>
+
+                <md-list-item @click="goToSimpleList()">
+                  <md-icon>movie_filter</md-icon>
+                  <span class="md-list-item-text">Favorite Movies</span>
+                </md-list-item>
+             
+
+              <md-list-item @click="goToSettings()">
+                  <md-icon>local_movies</md-icon>
+                  <span class="md-list-item-text">Nearby Cinemas</span>
+                </md-list-item>
+              </md-list>
+        </md-drawer> -->
+      
+    
+      <div id="bottom-bar">
+      <md-bottom-bar md-sync-route md-type="shift">
+        <md-bottom-bar-item  class="orange" id="bottom-bar-item-home" md-label="Search" md-icon="search" @click="goToFind()"></md-bottom-bar-item>
+        <md-bottom-bar-item class="orange" id="bottom-bar-item-pages" md-label="Favorite" md-icon="favorite" @click="goToSimpleList()"></md-bottom-bar-item>
+        <md-bottom-bar-item class="orange" id="bottom-bar-item-posts" md-label="Cinemas" md-icon="local_movies" @click="goToSettings()"></md-bottom-bar-item>
+      </md-bottom-bar>
+    </div>
+
+      <main class="main-content"> <!-- aqui el router inyecta las paginas-->
+                       <div>
+                          <router-view></router-view>
+                        </div>
+                      
+        </main>
+
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/apikey.js"></script>
+		<script type="text/javascript" src="libs/vue.js"></script>
+		<script type="text/javascript" src="js/vue-router.js"></script>
+		<script type="text/javascript" src="libs/vuematerial.js"></script>
+		<script type="text/javascript" src="js/components/simple_list.js"></script>
+		<script type="text/javascript" src="js/components/movie_details.js"></script>
+    <script type="text/javascript" src="js/components/settings.js"></script>
+    <script type="text/javascript" src="js/components/find.js"></script>
+    <script type="text/javascript" src="js/components/buscar_img.js"></script>
+    <script type="text/javascript" src="js/components/searchtext.js"></script>
+    
+		<script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
+
+
+
+
+

@@ -1,0 +1,264 @@
+#main{
+	text-align: center;
+}
+
+
+#fimage{
+	margin-top: 15px;
+}
+
+.maintitle{
+	margin-top: 60px;
+	font-size: 2em;
+	line-height: 1.3em;
+}
+
+#bottom-bar{
+	width: 100%;
+	height: 50px;
+	position: fixed;
+	bottom: 0px;
+	z-index: 999;
+}
+
+#bottom-bar>md-bottom-bar{
+	width: 100vw;
+	display: inline-block;
+}
+
+md-bottom-bar-item{
+	width: 33vw;
+}
+
+#searchfield{
+	height: 70px;
+	overflow: hidden;
+	margin-top: 20px;
+	width: 100%;
+	display: inline-block;
+}
+
+#searchfield>.search{
+	margin: auto;
+	margin-top: 16px;
+	display: inline-block;
+}
+
+#searchfield>.md-field{
+	width: 50%;
+	margin: auto;
+	display: inline-block;
+}
+
+#popularmovies{
+	text-align: left;
+	margin-top: 20vh;
+}
+
+#popularmovies>p{
+	margin: 2px;
+	margin-left: 6px;
+}
+
+#popularlist{
+	text-align: center;
+	width: auto;
+	height: 220px;
+	overflow: auto;
+	white-space: nowrap;
+	margin-bottom: 50px;
+}
+
+#popularlist>.md-card{
+	vertical-align: top;
+	display: inline-block;
+	width: 110px;
+	height: 210px;
+	margin-left: 3px;
+	margin-right: 2px;
+}
+#popularlist .md-title{
+	max-height: 37px;
+	height: auto;
+	white-space: pre-wrap;
+	display: inline-block;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	line-height: 18px;
+	margin: auto;
+	margin-top: 3px;
+}
+
+#popularlist .md-card-header{
+	padding: 2px;
+}
+
+#backdrop{
+	width: 100%;
+	max-width: 700px;
+	display: block;
+	margin: auto;
+	z-index: -100;
+}
+
+#maindata{
+	width: 100%;
+	max-width: 700px;
+	margin: auto;
+	display: block;
+}
+
+.favbutton{
+	margin-top: -27px;
+	float: right;
+	margin-right: 10%;
+	z-index: 1000;
+}
+
+#poster{
+	width: 30%;
+	height: auto;
+	float: left;
+	margin-left: 5%;
+	margin-top: 10px;
+}
+
+#lateral{
+	width: 60%;
+	right: 0px;
+	float: right;
+	text-align: left;
+}
+
+#title{
+	margin-top: 2px;
+}
+
+
+#genres{
+	width: 100%;
+	padding: 15px;
+	right: 0px;
+	clear: both;
+	text-align: center;
+}
+
+.md-chip{
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+
+#overview{
+	clear: both;
+	padding-top: 0px;
+	text-align: left;
+	margin: 15px;
+	margin-top: 0px;
+	margin-bottom: 60px
+}
+
+@media screen and (min-width: 450px){
+	#genres{
+		width: 60%;
+		right: 0px;
+		padding: 0px;
+		float: right;
+		clear: none;
+		text-align: left;
+	}
+	#overview{
+		padding-top: 15px;
+		margin-top: 15px;
+	}
+}
+
+#favlist{
+	width: 100%;
+	height: auto;
+}
+
+#favlist .md-card{
+	vertical-align: top;
+	display: inline-block;
+	width: 31vw;
+	height: auto;
+	margin-left: 1vw;
+	margin-right: 1vw;
+	margin-top: 10px;
+}
+
+#favlist .mtitle{
+	max-height: 37px;
+	height: auto;
+	white-space: pre-wrap;
+	display: inline-block;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	line-height: 18px;
+	margin: auto;
+	margin-top: 3px;
+}
+
+#favlist .md-card-header{
+	padding: 2px;
+	text-align: center;
+}
+
+.md-dialog{
+	max-width: 90vw;
+	height: auto;
+	display: block;
+	margin: auto;
+}
+.md-dialog .md-button{
+	width: 90%;
+	display: block;
+	margin-left: 5%;
+}
+.md-progress-spinner{
+	margin-top: 20vh;
+}
+
+#textres{
+	width: 100%;
+	height: auto;
+}
+
+#textres .md-card{
+	vertical-align: top;
+	display: inline-block;
+	width: 31vw;
+	height: auto;
+	margin-left: 1vw;
+	margin-right: 1vw;
+	margin-top: 10px;
+}
+
+#textres .mtitle{
+	max-height: 37px;
+	height: auto;
+	white-space: pre-wrap;
+	display: inline-block;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	line-height: 18px;
+	margin: auto;
+	margin-top: 3px;
+}
+
+#textres .md-card-header{
+	padding: 2px;
+	text-align: center;
+}
+
+.resultdiv{
+	text-align: left;
+	margin-left: 2vw;
+}
+
+.md-progress-spinner{
+	position: fixed;
+}
