@@ -32,7 +32,7 @@ function init(){
     
     const routes = [
                 {path: '/find', name: 'find',  component: FindTemplate}
-            ,{path: '/settings', name: 'settings',  component: SettingsTemplate}
+            ,{path: '/maps', name: 'maps',  component: MapsTemplate}
             ,{path: '/movie_details:idm', name: 'moviedetails', component: MovieDetailsTemplate}
             ,{path: '/simplelist', name: 'simplelist', component: SimpleListTemplate}
             ,{path: '/buscar_img', name: 'buscar_img', component: buscar_img}
@@ -61,10 +61,10 @@ function init(){
                     //this.$refs.sidebar.toggle();
                     router.push({ name: 'find'});
                 },
-            goToSettings: function(){
+            goToMaps: function(){
                 this.showNavigation = false;
                     //this.$refs.sidebar.toggle();
-                    router.push({ name: 'settings'})
+                    router.push({ name: 'maps'})
                 },
             goToSimpleList: function(){
                 this.showNavigation = false;

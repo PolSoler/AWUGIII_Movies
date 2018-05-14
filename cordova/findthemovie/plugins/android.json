@@ -15,6 +15,9 @@
     },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.findthemovie.awug3"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.findthemovie.awug3"
     }
   },
   "dependent_plugins": {}

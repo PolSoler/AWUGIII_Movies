@@ -262,3 +262,9 @@ md-bottom-bar-item{
 .md-progress-spinner{
 	position: fixed;
 }
+
+#map{
+	height: 400px;
+	width: 100%;
+	position: relative;
+}
