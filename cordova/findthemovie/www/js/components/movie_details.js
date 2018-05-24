@@ -19,6 +19,7 @@ const MovieDetailsTemplate = {props: ['idm'],
         methods:{
           getDetails: function(){//load movie details
               var mov=[];
+              var self = this;
                var request = $.ajax({
                     url: "https://api.themoviedb.org/3/movie/"+id+"?api_key="+moviedbapi,
                     method: "GET"
@@ -36,31 +37,37 @@ const MovieDetailsTemplate = {props: ['idm'],
                                 "title":result.original_title,
                                 
                               });
+                    self.movie=mov;
+                    document.getElementById("backdrop").style.backgroundImage  = "url("+self.movie[0].backdrop_path+")";
                       });
                   request.fail(function( jqXHR, textStatus ) {
                     alert( "Request failed: " + textStatus );
                   });
-                  this.movie=mov;
+                  
           },
           favclick: function () {
             var vm = this;
             if (!vm.fav) {
+              vm.fav=true;
               var smovie=[id, this.movie[0].backdrop_path, this.movie[0].genres, this.movie[0].release_date, this.movie[0].runtime, this.movie[0].overview, this.movie[0].vote_average, this.movie[0].homepage, this.movie[0].poster_path, this.movie[0].title];
               db.transaction(function (tx) {
                 tx.executeSql('INSERT INTO favorites (id, backdrop_path, genres, release_date, runtime, overview, vote_average, homepage, poster_path, title) VALUES (?,?,?,?,?,?,?,?,?,?)',smovie,function (resultSet) {
                     vm.fav=true;
                     console.log("inserted, fav: "+vm.fav);
                 }, function(error) {
+                  vm.fav=false;
                   console.log('INSERT error: ' + error.message);
                 });
               });
               //this.fav=fav;
             }else{
+              vm.fav=false;
               db.transaction(function (tx) {
                 tx.executeSql('DELETE FROM favorites WHERE id=?',[id],function (resultSet) {
                     vm.fav=false;
                     console.log("deleted, fav: "+vm.fav);
                 }, function(error) {
+                  vm.fav=true;
                   console.log('DELETE error: ' + error.message);
                 });
               });
@@ -70,28 +77,44 @@ const MovieDetailsTemplate = {props: ['idm'],
           }
         },
         created: function () {
-          var vm = this;
-            this.getDetails();
+          var self = this;
+          self.getDetails();
             db.transaction(function (tx) {
               //check if movie is in db
-              console.log("id: "+id);
                 tx.executeSql('SELECT * FROM favorites WHERE id=?', [id], function(tx, results){
+                  console.log(JSON.stringify(results.rows.item(0)));
                     if (results.rows.length==0) {
-                      vm.fav=false;
+                      self.fav=false;
+                      //self.getDetails();
                     }else{
-                      vm.fav=true;
+                      self.fav=true;
+                      /*var mov=[];
+                      
+                      mov.push({
+                                "backdrop_path":"http://image.tmdb.org/t/p/w500//"+results.rows.item(0).backdrop_path,
+                                "genres":JSON.stringify(results.rows.item(0).genres),
+                                "release_date":results.rows.item(0).release_date,
+                                "runtime":results.rows.item(0).runtime,
+                                "overview":results.rows.item(0).overview,
+                                "vote_average":results.rows.item(0).vote_average,
+                                "homepage":results.rows.item(0).homepage,
+                                "poster_path":"http://image.tmdb.org/t/p/w342//"+results.rows.item(0).poster_path,
+                                "title":results.rows.item(0).original_title,
+                                
+                              });
+
+                      self.movie=mov;
+                      document.getElementById("backdrop").style.backgroundImage  = "url("+self.movie[0].backdrop_path+")";*/
                     }
-                  console.log("fav: "+vm.fav);
                 }, function (error) {
                   console.log('transaction error: ' + error.message);
               });
             });
-            //this.fav=fav;
         },
         template:`
         <div>
           <div id="main">
-          <img id='backdrop' :src='movie[0].backdrop_path'>
+          <div id='backdrop'></div>
             <div id='maindata'>
               <md-button class="favbutton md-fab md-primary" v-on:click.native='favclick()' >
                 <md-icon v-if="this.fav==true">favorite</md-icon>

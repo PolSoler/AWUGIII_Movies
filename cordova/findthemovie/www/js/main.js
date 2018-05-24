@@ -34,7 +34,7 @@ function init(){
                 {path: '/find', name: 'find',  component: FindTemplate}
             ,{path: '/maps', name: 'maps',  component: MapsTemplate}
             ,{path: '/movie_details:idm', name: 'moviedetails', component: MovieDetailsTemplate}
-            ,{path: '/simplelist', name: 'simplelist', component: SimpleListTemplate}
+            ,{path: '/Favorites', name: 'Favorites', component: FavoritesTemplate}
             ,{path: '/buscar_img', name: 'buscar_img', component: buscar_img}
             ,{path: '/searchtext', name: 'searchtext', component: searchtext}
             
@@ -66,10 +66,10 @@ function init(){
                     //this.$refs.sidebar.toggle();
                     router.push({ name: 'maps'})
                 },
-            goToSimpleList: function(){
+            goToFavorites: function(){
                 this.showNavigation = false;
                     //this.$refs.sidebar.toggle();
-                    router.push('simplelist');
+                    router.push('Favorites');
                 },
             clickedShowDetailModal: function(idm){
                 this.showNavigation = false;

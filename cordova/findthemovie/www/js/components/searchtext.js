@@ -43,22 +43,22 @@ const searchtext = {props: [],
         template:`
         <div id="textres">
             <div id="main">
-            <md-toolbar class="md-primary"> 
-                <h3 class="md-title">Search Results</h3>
-            </md-toolbar>
-                <md-progress-spinner class="md-primary" md-mode="indeterminate" v-if="spinner"></md-progress-spinner>
+                <md-toolbar class="md-primary"> 
+                    <h3 class="md-title">Search Results</h3>
+                </md-toolbar>
+                <md-progress-spinner class="md-primary spinner" md-mode="indeterminate" v-if="spinner"></md-progress-spinner>
 
-                <div id='resultmovies'>
-                    <div id="resultlist">
-                    <div v-if="spinner==false">
-                        <div v-if="movies.length==0">
-                            <h2 class="md-title resultdiv">No Results</h2>
+                <div>
+                    <div id='favs'>
+                        <div v-if="spinner==false">
+                            <div v-if="movies.length==0">
+                                <h2 class="md-title resultdiv">No Results</h2>
+                            </div>
                         </div>
-                    </div>
-                        <md-card md-with-hover v-for="movie in movies" :key="movie.id" @click.native="emitDetail(movie.id)">
+                        <md-card class="favmovie" md-with-hover v-for="movie in movies" :key="movie.id" @click.native="emitDetail(movie.id)">
                             <md-ripple>
                                 <md-card-media>
-                                    <img class='poster' :src='movie.poster'>
+                                    <img :src='movie.poster'>
                                 </md-card-media>
 
                                 <md-card-header>

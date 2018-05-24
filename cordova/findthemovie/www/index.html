@@ -23,12 +23,12 @@
       <div id="bottom-bar">
       <md-bottom-bar md-sync-route md-type="shift">
         <md-bottom-bar-item  class="orange" id="bottom-bar-item-home" md-label="Search" md-icon="search" @click="goToFind()"></md-bottom-bar-item>
-        <md-bottom-bar-item class="orange" id="bottom-bar-item-pages" md-label="Favorite" md-icon="favorite" @click="goToSimpleList()"></md-bottom-bar-item>
+        <md-bottom-bar-item class="orange" id="bottom-bar-item-pages" md-label="Favorite" md-icon="favorite" @click="goToFavorites()"></md-bottom-bar-item>
         <md-bottom-bar-item class="orange" id="bottom-bar-item-posts" md-label="Cinemas" md-icon="local_movies" @click="goToMaps()"></md-bottom-bar-item>
       </md-bottom-bar>
     </div>
 
-      <main class="main-content"> <!-- aqui el router inyecta las paginas-->
+      <main class="main-content" id="#main-content"> <!-- aqui el router inyecta las paginas-->
                        <div>
                           <router-view></router-view>
                         </div>
@@ -42,7 +42,8 @@
 		<script type="text/javascript" src="libs/vue.js"></script>
 		<script type="text/javascript" src="js/vue-router.js"></script>
 		<script type="text/javascript" src="libs/vuematerial.js"></script>
-		<script type="text/javascript" src="js/components/simple_list.js"></script>
+    
+		<script type="text/javascript" src="js/components/favorites.js"></script>
 		<script type="text/javascript" src="js/components/movie_details.js"></script>
     <script type="text/javascript" src="js/components/maps.js"></script>
     <script type="text/javascript" src="js/components/find.js"></script>
@@ -52,7 +53,7 @@
       function loadScript() {
         var script = document.createElement('script');
         script.type = 'text/javascript';
-        script.src = 'https://maps.googleapis.com/maps/api/js?key=' + visionapi;
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=' + visionapi + '&libraries=places';
         document.body.appendChild(script);
         }
 

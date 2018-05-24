@@ -111,6 +111,7 @@ const buscar_img = {props: [],
                 });
                 request.fail(function( jqXHR, textStatus, errorThrown ) {
                    alert( "Request failed: " + jqXHR.status );
+
                 });
 
                 },
@@ -192,30 +193,32 @@ const buscar_img = {props: [],
                 <md-toolbar class="md-primary"> 
                     <h3 class="md-title">Image Results</h3>
                 </md-toolbar>
-                    <md-progress-spinner class="md-primary" md-mode="indeterminate" v-if="spinner"></md-progress-spinner>
-                    <div id="filmresults" v-if="showres">
-                    <div id="textres">
-                        <h2 class="md-title resultdiv">Possible Films</h2>
-                            <md-card md-with-hover v-for="movie in movies" :key="movie.id" @click.native="emitDetail(movie.id)">
-                                <md-ripple>
-                                    <md-card-media>
-                                        <img class='poster' :src='movie.poster'>
-                                    </md-card-media>
+                    <md-progress-spinner class="md-primary spinner" md-mode="indeterminate" v-if="spinner"></md-progress-spinner>
+                    <div id="favs" v-if="showres">
+                        <div id="textres">
+                            <h2 class="md-title resultdiv">Possible Films</h2>
+                                <md-card class="favmovie" md-with-hover v-for="movie in movies" :key="movie.id" @click.native="emitDetail(movie.id)">
+                                    <md-ripple>
+                                        <md-card-media>
+                                            <img class='poster' :src='movie.poster'>
+                                        </md-card-media>
 
-                                    <md-card-header>
-                                        <div class="md-title mtitle">{{movie.title}}</div>
-                                    </md-card-header>
-                                </md-ripple>
-                            </md-card>
-                    </div>
+                                        <md-card-header>
+                                            <div class="md-title mtitle">{{movie.title}}</div>
+                                        </md-card-header>
+                                    </md-ripple>
+                                </md-card>
+                                <div v-if="movies.lenght==0">No results</div>
+                        </div>
                         <h2 class="md-title resultdiv">Text Results</h2>
                         <md-list>
-                            <div v-for="item in results" :key="results.id">
-                                <md-list-item @click="emitSearch(item.desc)">
+                            <md-list-item @click="emitSearch(item.desc)"  v-for="item in results" :key="item.id">
                                 <span class="md-list-item-text">{{item.desc}}</span>
-                                </md-list-item>
-                                <md-divider class="md-inset"></md-divider>
-                            </div>
+                            </md-list-item>
+                            <md-divider class="md-inset"></md-divider>
+                            <md-list-item v-if="results.lenght==0">
+                                <span class="md-list-item-text">No results</span>
+                            </md-list-item>
                         </md-list>
                     </div>
             </div>  

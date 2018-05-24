@@ -119,12 +119,12 @@ const FindTemplate = {props: {},
                   <label>Find movie by text</label>
                   <md-input v-model="type" id="textsearch"></md-input>
                 </md-field>
-                <md-button class="md-icon-button md-dense md-primary search" @click="emitSearch()">
+                <md-button class="md-icon-button md-dense md-accent search" @click="emitSearch()">
                   <md-icon>search</md-icon>
                 </md-button>
                 </div>
                 <div id="fimage">
-                  <md-button class="md-fab md-primary" @click="showDialog = true">
+                  <md-button class="md-fab md-accent" @click="showDialog = true">
                      <md-icon>camera_alt</md-icon>
                   </md-button>
                   <br>
@@ -148,7 +148,7 @@ const FindTemplate = {props: {},
                 </div>
 
                   <div>
-                    <md-dialog :md-active.sync="showDialog" class="md-alignment-top-center">
+                    <md-dialog :md-active.sync="showDialog" class="choosedialog md-alignment-top-center">
                       <md-dialog-title>Camera</md-dialog-title>
 
                         <md-button class="md-primary" @click.native="openCam()">Take a Picture</md-button>
